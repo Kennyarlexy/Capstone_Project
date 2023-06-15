@@ -59,9 +59,10 @@ def main():
             st.altair_chart(chart, use_container_width=True)
 
     st.markdown("##### Insight:")
-    st.markdown("1. Terlihat bahwa IPM meningkat setiap tahunnya secara konstan")
-    st.markdown("2. Terlihat bahwa di Perkotaan, volume konsumsi alkohol cenderung berkurang")
-    st.markdown("3. Terlihat bahwa di pedesaan, volume konsumsi alkohol sempat menanjak, tetapi kembali berkurang")
+    st.markdown("1. Terlihat bahwa IPM terus meningkat dari tahun 2015-2022")
+    st.markdown("2. Terlihat bahwa di perkotaan, volume konsumsi alkohol fluktuatif dari tahun 2015-2018, tetapi terus menurut setelah tahun 2018.")
+    st.markdown("3. Terlihat bahwa di pedesaan, volume konsumsi fluktuatif dari tahun 2015 - 2017, tetapi kembali berkurang setelah tahun 2017.")
+    st.markdown("4. Terlihat bahwa di perkotaan dan pedesaan, volume konsumsi alkohol fluktuatif dari tahun 2015-2017, tetapi kembali berkurang setelah tahun 2017.")
 
     corr_matrix = df.corr()
     
@@ -78,9 +79,10 @@ def main():
     ax.set_title("Korelasi Indeks Pembangunan Manusia dengan Konsumsi Alkohol di Desa/Kota", fontdict={"fontsize": 16})
 
     st.markdown("##### Insight:")
-    st.markdown("1. Terlihat korelasi negatif yang cukup kuat antara IPM dengan konsumsi alkohol di perkotaan, yakni sebesar -0,75")
+    st.markdown("1. Terlihat korelasi negatif yang cukup kuat antara IPM dengan konsumsi alkohol di perkotaan, yakni sebesar -0,75. ")
     st.markdown("2. Terlihat korelasi negatif yang lemah antara IPM dengan konsumsi alkohol di pedesaan, yakni sebesar -0,11")
-    st.markdown("2. Terlihat korelasi negatif yang lemah antara IPM dengan konsumsi alkohol di pedesaan, yakni sebesar -0,11")
+    st.markdown("3. Terlihat korelasi negatif menengah antara IPM dengan konsumsi alkohol di perkotaan dan pedesaan, yakni sebesar -0,46")
+    st.markdown("4. Secara keseluruhan, dapat disimpulkan bahwa ada korelasi negatif antara konsumsi alkohol dengan Indeks Pembangunan Manusia. Dengan kata lain, secara statistik, konsumsi alkohol yang lebih rendah akan menghasilkan Indeks Pembangunan Manusia yang lebih tinggi.")
 
     heatmap.set_xticklabels(heatmap.get_xticklabels(), fontdict={"fontsize": 12})
     
