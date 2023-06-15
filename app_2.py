@@ -14,7 +14,7 @@ def main():
     st.markdown("## Pendahuluan")
     st.markdown("Indeks Pembangunan Manusia (IPM) seringkali digunakan sebagai indikator untuk mengukur kualitas hidup manusia pada suatu negara. Sedangkan mengonsumsi minuman beralkohol berlebihan diketahui dapat memberikan dampat negatif bagi kesehatan dan psikis seseorang")
     st.markdown("Maka dari itu, muncul suatu pertanyaan:")
-    st.markdown("##### _\"Apakah terdapat hubungan antara konsumsi alkohol terhadap IPM suatu negara?\"_")
+    st.markdown("##### _\"Apakah terdapat hubungan antara konsumsi alkohol terhadap IPM negara Indonesia?\"_")
     st.markdown("Analisis hubungan IPM dengan konsumsi alkohol dapat memberikan _insight_ yang berharga bagi negara Indonesia untuk meningkatkan Indeks Pembangunan Manusia atau IPM.")
 
 
@@ -96,6 +96,9 @@ def main():
 
     st.pyplot(fig)
 
+
+    st.markdown("# Perubahan Tahunan Ternormalisasi")
+    st.markdown("Sekarang mari kita lihat bagaimana perubahan IPM dengan konsumsi alkohol secara bersamaan.")
     perkotaan = st.checkbox("Perkotaan", value=True)
     pedesaan = st.checkbox("Pedesaan", value=True)
     perkotaan_dan_pedesaan = st.checkbox("Perkotaan dan Pedesaan", value=False)
@@ -108,9 +111,12 @@ def main():
         active.append(2)
     if perkotaan_dan_pedesaan:
         active.append(3)
-
-    st.markdown("# Perubahan Tahunan Ternormalisasi")
     st.line_chart(df_normalized.iloc[:, active])
+    st.markdown("##### Insight:")
+    st.markdown("Terlihat bahwa jarak antara konsumsi alkohol dan IPM cenderung membesar, terutama setelah tahun 2017 dan 2018 sehingga memperlihatkan korelasi negatif.")
+
+    st.markdown("## Kesimpulan")
+    st.markdown("Hasil analisis korelasi menunjukkan bahwa memang terdapat hubungan statistik antara konsumsi alkohol terhadap IPM suatu negara. Konsumsi alkohol yang lebih kecil cenderung diikuti dengan kenaikan Indeks Pembangunan Manusia di negara Indonesia")
 
 if __name__ == "__main__":
     main()
