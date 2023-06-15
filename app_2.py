@@ -79,15 +79,6 @@ def main():
     ax.set_title("Korelasi Indeks Pembangunan Manusia dengan Konsumsi Alkohol di Desa/Kota", fontdict={"fontsize": 16})
 
     met_1, met_2, met_3 = st.columns(3)
-    # with met_1:
-    #     st.metric("Di Pedesaan", round(corr_matrix.iloc[0, 1], 2))
-    # with met_2:
-    #     st.metric("Di Perkotaan", round(corr_matrix.iloc[0, 2], 2))
-    # with met_3:
-    #     st.metric("Keseluruhan", round(corr_matrix.iloc[0, 3], 2))
-
-
-    met_1, met_2, met_3 = st.columns(3)
 
     # Define custom CSS styling for metrics
     style = """
@@ -115,7 +106,7 @@ def main():
         st.markdown(
             f'<div class="metric-container">'
             f'<div class="metric-value">{round(corr_matrix.iloc[0, 1], 2)}</div>'
-            f'<div class="metric-label">Di Pedesaan</div>'
+            f'<div class="metric-label">Di Perkotaan</div>'
             f'</div>',
             unsafe_allow_html=True,
         )
@@ -124,7 +115,7 @@ def main():
         st.markdown(
             f'<div class="metric-container">'
             f'<div class="metric-value">{round(corr_matrix.iloc[0, 2], 2)}</div>'
-            f'<div class="metric-label">Di Perkotaan</div>'
+            f'<div class="metric-label">Di Pedesaan</div>'
             f'</div>',
             unsafe_allow_html=True,
         )
