@@ -78,11 +78,70 @@ def main():
     st.markdown("### Heatmap Korelasi Indeks Pembangunan Manusia (IPM) dan Konsumsi Alkohol")
     ax.set_title("Korelasi Indeks Pembangunan Manusia dengan Konsumsi Alkohol di Desa/Kota", fontdict={"fontsize": 16})
 
+    met_1, met_2, met_3 = st.columns(3)
+    # with met_1:
+    #     st.metric("Di Pedesaan", round(corr_matrix.iloc[0, 1], 2))
+    # with met_2:
+    #     st.metric("Di Perkotaan", round(corr_matrix.iloc[0, 2], 2))
+    # with met_3:
+    #     st.metric("Keseluruhan", round(corr_matrix.iloc[0, 3], 2))
+
+
+    met_1, met_2, met_3 = st.columns(3)
+
+    # Define custom CSS styling for metrics
+    style = """
+        .metric-container {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .metric-label {
+            font-size: 16px;
+            color: #888888;
+        }
+    """
+
+    # Apply the custom CSS styling
+    st.markdown(f"<style>{style}</style>", unsafe_allow_html=True)
+
+    with met_1:
+        st.markdown(
+            f'<div class="metric-container">'
+            f'<div class="metric-value">{round(corr_matrix.iloc[0, 1], 2)}</div>'
+            f'<div class="metric-label">Di Pedesaan</div>'
+            f'</div>',
+            unsafe_allow_html=True,
+        )
+
+    with met_2:
+        st.markdown(
+            f'<div class="metric-container">'
+            f'<div class="metric-value">{round(corr_matrix.iloc[0, 2], 2)}</div>'
+            f'<div class="metric-label">Di Perkotaan</div>'
+            f'</div>',
+            unsafe_allow_html=True,
+        )
+
+    with met_3:
+        st.markdown(
+            f'<div class="metric-container">'
+            f'<div class="metric-value">{round(corr_matrix.iloc[0, 3], 2)}</div>'
+            f'<div class="metric-label">Keseluruhan</div>'
+            f'</div>',
+            unsafe_allow_html=True,
+        )
+
+    
     st.markdown("##### Insight:")
-    st.markdown("1. Terlihat korelasi negatif yang cukup kuat antara IPM dengan konsumsi alkohol di perkotaan, yakni sebesar -0,75. ")
-    st.markdown("2. Terlihat korelasi negatif yang lemah antara IPM dengan konsumsi alkohol di pedesaan, yakni sebesar -0,11")
-    st.markdown("3. Terlihat korelasi negatif menengah antara IPM dengan konsumsi alkohol di perkotaan dan pedesaan, yakni sebesar -0,46")
-    st.markdown("4. Secara keseluruhan, dapat disimpulkan bahwa ada korelasi negatif antara konsumsi alkohol dengan Indeks Pembangunan Manusia. Dengan kata lain, secara statistik, konsumsi alkohol yang lebih rendah akan menghasilkan Indeks Pembangunan Manusia yang lebih tinggi.")
+    
+    st.markdown("Secara keseluruhan, dapat disimpulkan bahwa ada korelasi negatif antara konsumsi alkohol dengan Indeks Pembangunan Manusia.")
 
     heatmap.set_xticklabels(heatmap.get_xticklabels(), fontdict={"fontsize": 12})
     
